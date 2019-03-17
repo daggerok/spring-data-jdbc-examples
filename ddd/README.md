@@ -82,7 +82,7 @@ http :8002 name=test
 http :8002 name="test 2"
 ```
 
-now we can check if statistics is works as expected:
+now we can check if statistics is working as expected:
 
 ```bash
 http :8002/statistics
