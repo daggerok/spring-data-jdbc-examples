@@ -62,12 +62,12 @@ public class StatisticsResource {
 
   @EventListener
   public void on(CustomerCreatedEvent event) {
-    Customer customer = (Customer) event.getSource();
-    updateStatistics(customer);
+    Customer newCustomer = (Customer) event.getSource();
+    updateStatisticsFor(newCustomer);
   }
 
-  void updateStatistics(Customer customer) {
-    String name = customer.getName();
+  void updateStatisticsFor(Customer newCustomer) {
+    String name = newCustomer.getName();
     statistics.putIfAbsent(name, new AtomicLong(0));
     AtomicLong counter = statistics.get(name);
     counter.incrementAndGet();
@@ -120,7 +120,7 @@ public class StatisticsResource {
   @PostConstruct
   public void init() {
     StreamSupport.stream(customerRepository.findAll().spliterator(), true)
-                 .forEach(this::updateStatistics);
+                 .forEach(this::updateStatisticsFor);
   }
   // rest without caches...
 }
