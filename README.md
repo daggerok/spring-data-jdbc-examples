@@ -1,7 +1,7 @@
 # Spring Data JDBC
 Fast and efficient spring-data
 
-- [DDD app based on Spring Data JDBC](https://github.com/daggerok/spring-data-jdbc-examples/blob/master/ddd/README.md)
+- [DDD app based on Spring Data JDBC](./ddd/)
 - [Simple getting started](./simple/)
 
 ## prepare
