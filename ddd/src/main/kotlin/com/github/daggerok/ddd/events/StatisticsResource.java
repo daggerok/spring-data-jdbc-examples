@@ -25,7 +25,7 @@ public class StatisticsResource {
   private final CustomerRepository customerRepository;
 
   @PostConstruct
-  public void init() {
+  public void reconstruct() {
     StreamSupport.stream(customerRepository.findAll().spliterator(), true)
                  .forEach(this::updateStatistics);
   }
