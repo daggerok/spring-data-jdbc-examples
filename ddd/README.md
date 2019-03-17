@@ -105,7 +105,7 @@ Content-Type: application/json;charset=UTF-8
 
 ## in addition
 
-To make our app consistent after reboot, let's introduce statistics reconstruction in `StatisticsResource` resource:
+To make our app consistent after reboot, let's introduce statistics reconstruction in `StatisticsResource` class:
 
 ```java
 @RestController
