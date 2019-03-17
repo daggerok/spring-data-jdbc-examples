@@ -61,8 +61,13 @@ public class StatisticsResource {
   }
 
   @EventListener
+  @Transactional
   public void on(CustomerCreatedEvent event) {
     Customer customer = (Customer) event.getSource();
+    updateStatistics(customer);
+  }
+
+  void updateStatistics(Customer customer) {
     String name = customer.getName();
     statistics.putIfAbsent(name, new AtomicLong(0));
     AtomicLong counter = statistics.get(name);
@@ -96,6 +101,27 @@ Content-Type: application/json;charset=UTF-8
 {
     "test": 2,
     "test 2": 1
+}
+```
+
+## in addition
+
+To make out app consistent after reboot, let's introduce statistics reconstruction in out `StatisticsResource` resource:
+
+```java
+public class StatisticsResource {
+  private final CustomerRepository customerRepository;
+
+  public StatisticsResource(CustomerRepository customerRepository) {
+    this.customerRepository = customerRepository;
+  }
+  
+  @PostConstruct
+  public void init() {
+    StreamSupport.stream(customerRepository.findAll().spliterator(), true)
+                 .forEach(this::updateStatistics);
+  }
+  // rest without caches...
 }
 ```
 
