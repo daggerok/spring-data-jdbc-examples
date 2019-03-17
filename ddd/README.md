@@ -14,7 +14,7 @@ _To make our Customer entity (from simple project) an aggregate is easy as 1-2-3
 class Customer extends AbstractAggregateRoot<Customer> { /* ... */ }
 ```
 
-NOTE: it's extends AbstractAggregateRoot with itself as a generic parameter...
+NOTE: it's extends AbstractAggregateRoot with itself as a generic typed parameter...
 
 ## 2
 
