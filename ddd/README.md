@@ -20,7 +20,7 @@ NOTE: it's extends AbstractAggregateRoot with itself as a generic typed paramete
 
 _Secondly (in our root aggregate) we need to register event, when something important from prespective our domain (business) is happened..._
 
-For erxample here we emitting customer created event each time when new customer was created:
+For erxample on create customer Command, each time when new customer was created, we will emit customer created event:
 
 ```java
   public static Customer createForName(String name) {
