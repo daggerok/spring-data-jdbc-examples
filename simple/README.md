@@ -47,5 +47,11 @@ NOTE: as you can see, each fetch from DB creates new java object instance
 
 - see [java](https://github.com/daggerok/spring-data-jdbc-examples/tree/master/simple/src/main/kotlin/com/github/daggerok/simple/onetoone)
 - according [sql](https://github.com/daggerok/spring-data-jdbc-examples/blob/master/simple/src/main/resources/schema.sql#L21)
-- and [tests](https://github.com/daggerok/spring-data-jdbc-examples/blob/master/simple/src/test/kotlin/com/github/daggerok/simple/SimpleApplicationTests.kt#L21)
+- and [tests](https://github.com/daggerok/spring-data-jdbc-examples/blob/master/simple/src/test/kotlin/com/github/daggerok/simple/SimpleJavaApplicationTests.java#L21)
 - or [app](https://github.com/daggerok/spring-data-jdbc-examples/tree/master/simple/src/main/kotlin/com/github/daggerok/simple/onetoone/OneToOneRunner.java)
+
+## one referencing to one
+
+- see [java](https://github.com/daggerok/spring-data-jdbc-examples/tree/master/simple/src/main/kotlin/com/github/daggerok/simple/ref)
+- according [sql](https://github.com/daggerok/spring-data-jdbc-examples/blob/master/simple/src/main/resources/schema.sql#L35)
+- and [tests](https://github.com/daggerok/spring-data-jdbc-examples/blob/master/simple/src/test/kotlin/com/github/daggerok/simple/ref/BookTest.java#L22)
