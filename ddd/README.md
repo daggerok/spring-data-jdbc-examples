@@ -1,5 +1,7 @@
 # AggregateRoot and Domain Events
 
+## NOTE: it's not a really event sourced app
+
 _With Spring Data we can very easy implement DDD concepts. Spring Data JDBC supports it as well_
 
 Aggregate Root is something we may update and due to DDD it can emit (Domain Eventsourced) events on different operations (so called Commands)...
