@@ -25,6 +25,8 @@
      assertThat(newId).isNotEqualTo(oldId);
    }
  ```
+ 
+NOTE: as you can see generated IDs are different
 
 ## instances are not same even if you are loaded them twice!
 
@@ -38,3 +40,5 @@
     assertThat(first).isNotSameAs(second);
   }
 ```
+
+NOTE: as you can see, each fetch from DB creates new java object instance
