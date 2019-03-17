@@ -1,8 +1,10 @@
 # Spring Data JDBC
 Fast and efficient spring-data
 
+## see simple and ddd submodules!
+
+- [Spring Data JDBC Getting started](./simple/)
 - [DDD app based on Spring Data JDBC](./ddd/)
-- [Simple getting started](./simple/)
 
 <!-- we dont need that shit anymore... only if you wanna tests somethig with treboot...
 
