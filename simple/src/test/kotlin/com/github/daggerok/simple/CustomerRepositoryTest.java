@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.jdbc.DataJdbcTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import java.util.Optional;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 @Log4j2
@@ -40,5 +42,14 @@ class CustomerRepositoryTest {
 
     assertThat(customer2).isEqualTo(customer1);
     assertThat(newId).isNotEqualTo(oldId);
+  }
+
+  @Test
+  void testNotSame() {
+    Long id = customerRepository.save(Customer.createForName("test")).getId();
+    Optional<Customer> first = customerRepository.findById(id);
+    Optional<Customer> second = customerRepository.findById(id);
+
+    assertThat(first).isNotSameAs(second);
   }
 }

@@ -18,5 +18,23 @@
  But with Spring Data JDBC is easy! Just set entity id to null
  
  ```java
- 
+   @Test
+   void testClone() {
+     Customer customer1 = customerRepository.save(Customer.createForName("ololo trololo"));
+     Customer customer2 = customerRepository.save(customer1.withId(null));
+     assertThat(newId).isNotEqualTo(oldId);
+   }
  ```
+
+## instances are not same even if you are loaded them twice!
+
+```java
+  @Test
+  void testNotSame() {
+    Long id = customerRepository.save(Customer.createForName("test")).getId();
+    Optional<Customer> first = customerRepository.findById(id);
+    Optional<Customer> second = customerRepository.findById(id);
+
+    assertThat(first).isNotSameAs(second);
+  }
+```
