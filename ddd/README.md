@@ -4,7 +4,7 @@ _With Spring Data (and Spring Data JDBC supports it as well) we can very easy im
 
 ## NOTE: this is not a really event sourced app
 
-Aggregate Root is something we may update and due to DDD it can emit (Domain Eventsourced) events on different operations (so called Commands)...
+Aggregate Root is something we may update and due to DDD it can emit (Domain Eventsourced) events on different operations (so called commands)...
 
 ## 1
 
