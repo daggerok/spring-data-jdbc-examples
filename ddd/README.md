@@ -11,7 +11,7 @@ Aggregate Root is something we may update and due to DDD it can emit (Domain Eve
 _To make our Customer entity (from simple project) an aggregate is easy as 1-2-3_
 
 ```java
-class Customer extends AbstractAggregateRoot<Customer> { ... }
+class Customer extends AbstractAggregateRoot<Customer> { /* ... */ }
 ```
 
 NOTE: it's extends AbstractAggregateRoot with itself generic parameter...
