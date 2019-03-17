@@ -5,6 +5,7 @@
 - no lazy loading
 - no caching
 - no proxies
+- no deferred flush - as soon you saved entity, you can query it immediately!
 
 - not required no arg constructor
 - not setters/getters required - you can use Withers (see for example according lombok annotation)
