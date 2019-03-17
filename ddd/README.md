@@ -1,6 +1,6 @@
 # AggregateRoot and Domain Events
 
-_With Spring Data we can very easy implement DDD concepts. Spring Data JDBC supports it as well_
+_With Spring Data we can very easy implement DDD concepts in a 1-2-3 steps. Spring Data JDBC supports it as well_
 
 ## NOTE: this is not a really event sourced app
 
@@ -8,7 +8,7 @@ Aggregate Root is something we may update and due to DDD it can emit (Domain Eve
 
 ## 1
 
-_To make our Customer entity (from simple project) an aggregate is easy as 1-2-3_
+_To make our Customer entity (from simple project) an aggregate is easy:_
 
 ```java
 class Customer extends AbstractAggregateRoot<Customer> { /* ... */ }
