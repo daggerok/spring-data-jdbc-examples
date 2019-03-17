@@ -18,8 +18,7 @@ NOTE: it's extends AbstractAggregateRoot with itself as a generic typed paramete
 
 ## 2
 
-_Secondly (in our root aggregate) we need to register event, when something important from prespective our domain (
-business) is happened..._
+_Secondly (in our root aggregate) we need to register event, when something important from prespective our domain (business) is happened..._
 
 For erxample here we emitting customer created event each time when new customer was created:
 
