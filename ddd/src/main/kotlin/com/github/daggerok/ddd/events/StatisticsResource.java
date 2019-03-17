@@ -27,8 +27,8 @@ public class StatisticsResource {
   @EventListener
   public void on(CustomerCreatedEvent event) {
     log.info("received: {}", event);
-    Customer customerCreatedEvent = (Customer) event.getSource();
-    String name = customerCreatedEvent.getName();
+    Customer customer = (Customer) event.getSource();
+    String name = customer.getName();
     statistics.putIfAbsent(name, new AtomicLong(0));
     AtomicLong counter = statistics.get(name);
     counter.incrementAndGet();
