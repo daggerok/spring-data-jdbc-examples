@@ -8,7 +8,7 @@ Aggregate Root is something we may update and due to DDD it can emit (Domain Eve
 
 ## 1
 
-_To make our Customer entity (from simple project) an aggregate is easy:_
+_To make our Customer entity ([from simple project](https://github.com/daggerok/spring-data-jdbc-examples/tree/master/simple)) an aggregate is easy:_
 
 ```java
 class Customer extends AbstractAggregateRoot<Customer> { /* ... */ }
