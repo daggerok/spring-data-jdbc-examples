@@ -1,4 +1,6 @@
+.gradle/
 target/
+build/
 out/
 .DS_Store
 
@@ -12,9 +14,9 @@ out/
 .sts4-cache
 
 ### IntelliJ IDEA ###
-.idea
+.idea/
 *.iws
-h2/h2.iml
+*.iml
 *.ipr
 
 ### NetBeans ###

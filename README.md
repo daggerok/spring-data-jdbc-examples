@@ -6,7 +6,7 @@ Fast and efficient spring-data
 _start H2 database_
 
 ```bash
-./mvnw -pl :h2 clean spring-boot:run
+./mvnw -pl :h2 spring-boot:run
 ```
 
 open [H2 web UI](http://127.0.0.1:8080/h2-console/)

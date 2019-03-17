@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleLocalSettings">
+    <option name="projectSyncType">
+      <map>
+        <entry key="$USER_HOME$/shit/daggerok" value="PREVIEW" />
+        <entry key="$USER_HOME$/shit/es" value="PREVIEW" />
+        <entry key="$USER_HOME$/shit/fold-java" value="PREVIEW" />
+        <entry key="$USER_HOME$/shit/functional-cqrs-es" value="PREVIEW" />
+        <entry key="$USER_HOME$/shit/kafka-java-example" value="PREVIEW" />
+        <entry key="$USER_HOME$/shit/kotlin-dsl" value="PREVIEW" />
+        <entry key="$USER_HOME$/shit/kotlin-undertow" value="PREVIEW" />
+        <entry key="$USER_HOME$/shit/micronaut-example" value="PREVIEW" />
+        <entry key="$USER_HOME$/shit/micronaut-examples" value="PREVIEW" />
+        <entry key="$USER_HOME$/shit/micronaut-examples/complete" value="PREVIEW" />
+        <entry key="$USER_HOME$/shit/reactive-kafka" value="PREVIEW" />
+        <entry key="$USER_HOME$/shit/reactor-examples" value="PREVIEW" />
+        <entry key="$USER_HOME$/shit/reactor-examples/random-examples" value="PREVIEW" />
+        <entry key="$USER_HOME$/shit/rocketmq-example" value="PREVIEW" />
+        <entry key="$USER_HOME$/shit/spotbugs-gradle-plugin-multi-project-example" value="PREVIEW" />
+        <entry key="$USER_HOME$/shit/spring-boot-gradle-kotlin-dsl-example" value="PREVIEW" />
+        <entry key="$USER_HOME$/shit/spring-boot-nuxt-spa" value="PREVIEW" />
+        <entry key="$USER_HOME$/shit/spring-examples/frontend-reources" value="PREVIEW" />
+        <entry key="$USER_HOME$/shit/spring-security-java-ee-microprofile" value="PREVIEW" />
+        <entry key="$USER_HOME$/shit/spring-streaming" value="PREVIEW" />
+        <entry key="$USER_HOME$/shit/webflux-cqrs-es" value="PREVIEW" />
+        <entry key="/private/tmp/functional-cqrs-es" value="PREVIEW" />
+        <entry key="/private/tmp/gradle-kotlin-dsl-plugin-buildSrc" value="PREVIEW" />
+        <entry key="/private/tmp/jigsaw-skeleton" value="PREVIEW" />
+        <entry key="/private/tmp/kafka-gradle-kotlin-dsl-buildSrc-plugin" value="PREVIEW" />
+        <entry key="/private/tmp/kafka-java-example" value="PREVIEW" />
+        <entry key="/private/tmp/postgres-testcontainers-gradle-plugin" value="PREVIEW" />
+        <entry key="/private/tmp/reactive-kafka" value="PREVIEW" />
+      </map>
+    </option>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8.0_202</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
