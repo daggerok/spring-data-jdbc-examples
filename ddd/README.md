@@ -1,6 +1,6 @@
 # AggregateRoot and Domain Events
 
-_With Spring Data (and Spring Data JDBC supports it as well) we can very easy implement DDD concepts in a 1-2-3 steps_
+_With Spring Data (and Spring Data JDBC supports it as well) we can very easy implement some DDD concepts in a 1-2-3 steps_
 
 ## NOTE: this is not a really event sourced app
 
