@@ -1,6 +1,9 @@
 # Spring Data JDBC
 Fast and efficient spring-data
 
+- [Some DDD here](https://github.com/daggerok/spring-data-jdbc-examples/blob/master/ddd/README.md)
+- [Simple getting started](./simple/)
+
 ## prepare
 
 _start H2 database_
