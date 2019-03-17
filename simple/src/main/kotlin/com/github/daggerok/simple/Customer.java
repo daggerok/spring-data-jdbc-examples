@@ -1,6 +1,7 @@
 package com.github.daggerok.simple;
 
-import lombok.*;
+import lombok.EqualsAndHashCode;
+import lombok.Value;
 import lombok.experimental.Wither;
 import org.springframework.data.annotation.Id;
 
