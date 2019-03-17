@@ -74,15 +74,15 @@ public class StatisticsResource {
 
 ## build run and test
 
-so lets's create few customers:
+so lets's run app and after let's create few customers:
 
 ```bash
 http :8002 name=test
 http :8002 name=test
-http :8002 name='test 2'
+http :8002 name="test 2"
 ```
 
-now check if statistics is works as expected:
+now we can check if statistics is works as expected:
 
 ```bash
 http :8002/statistics
