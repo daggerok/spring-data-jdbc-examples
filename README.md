@@ -4,6 +4,8 @@ Fast and efficient spring-data
 - [DDD app based on Spring Data JDBC](./ddd/)
 - [Simple getting started](./simple/)
 
+<!-- we dont need that shit anymore... only if you wanna tests somethig with treboot...
+
 ## prepare
 
 _start H2 database_
@@ -13,6 +15,8 @@ _start H2 database_
 ```
 
 open [H2 web UI](http://127.0.0.1:8080/h2-console/)
+
+-->
 
 links:
 
