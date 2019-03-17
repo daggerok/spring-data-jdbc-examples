@@ -27,7 +27,7 @@ public class StatisticsResource {
   @PostConstruct
   public void reconstruct() {
     StreamSupport.stream(customerRepository.findAll().spliterator(), true)
-                 .forEach(this::updateStatistics);
+                 .forEach(this::updateStatisticsFor);
   }
 
   @GetMapping("/statistics")
@@ -38,12 +38,12 @@ public class StatisticsResource {
   @EventListener
   public void on(CustomerCreatedEvent event) {
     log.info("received: {}", event);
-    Customer customer = (Customer) event.getSource();
-    updateStatistics(customer);
+    Customer newCustomer = (Customer) event.getSource();
+    updateStatisticsFor(newCustomer);
   }
 
-  private void updateStatistics(Customer customer) {
-    String name = customer.getName();
+  private void updateStatisticsFor(Customer newCustomer) {
+    String name = newCustomer.getName();
     statistics.putIfAbsent(name, new AtomicLong(0));
     AtomicLong counter = statistics.get(name);
     counter.incrementAndGet();
