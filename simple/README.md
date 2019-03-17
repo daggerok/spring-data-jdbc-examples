@@ -22,7 +22,7 @@
    void testClone() {
      Customer customer1 = customerRepository.save(Customer.createForName("ololo trololo"));
      Customer customer2 = customerRepository.save(customer1.withId(null));
-     assertThat(newId).isNotEqualTo(oldId);
+     assertThat(customer2.getId()).isNotEqualTo(customer1.getId());
    }
  ```
  
