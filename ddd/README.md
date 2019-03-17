@@ -61,7 +61,6 @@ public class StatisticsResource {
   }
 
   @EventListener
-  @Transactional
   public void on(CustomerCreatedEvent event) {
     Customer customer = (Customer) event.getSource();
     updateStatistics(customer);
@@ -109,7 +108,9 @@ Content-Type: application/json;charset=UTF-8
 To make out app consistent after reboot, let's introduce statistics reconstruction in out `StatisticsResource` resource:
 
 ```java
+@RestController
 public class StatisticsResource {
+
   private final CustomerRepository customerRepository;
 
   public StatisticsResource(CustomerRepository customerRepository) {
