@@ -20,9 +20,9 @@ import java.util.stream.StreamSupport;
 @RequiredArgsConstructor
 public class StatisticsResource {
 
-  private Map<String, AtomicLong> statistics = new ConcurrentHashMap<>();
-
   private final CustomerRepository customerRepository;
+
+  private Map<String, AtomicLong> statistics = new ConcurrentHashMap<>();
 
   @PostConstruct
   public void reconstruct() {
