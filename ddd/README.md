@@ -127,3 +127,16 @@ public class StatisticsResource {
 ```
 
 And we are done ;)
+
+## TODO: additional resources to read
+
+* [Domain Driven Design with relational Databases and Spring Data JDBC.](http://blog.schauderhaft.de/talk-ddd-jdbc/talk.html#/)
+* [Effective Aggregate Design Part I](http://dddcommunity.org/wp-content/uploads/files/pdf_articles/Vernon_2011_1.pdf)
+* [Effective Aggregate Design Part II](http://dddcommunity.org/wp-content/uploads/files/pdf_articles/Vernon_2011_2.pdf)
+* [Effective Aggregate Design Part III](http://dddcommunity.org/wp-content/uploads/files/pdf_articles/Vernon_2011_3.pdf)
+* [Spring Data JDBC reference](https://docs.spring.io/spring-data/jdbc/docs/current/reference/html/#jdbc.repositories)
+* [spring.io/blog introducing-spring-data-jdbc](https://spring.io/blog/2018/09/17/introducing-spring-data-jdbc)
+* [spring.io/blog spring-data-jdbc-references-and-aggregates](https://spring.io/blog/2018/09/24/spring-data-jdbc-references-and-aggregates)
+* [Advancing Enterprise DDD](http://scabl.blogspot.com/p/advancing-enterprise-ddd.html)
+* [The Vietnam of Computer Science](http://blogs.tedneward.com/post/the-vietnam-of-computer-science/)
+* [GitHub: schauder/talk-ddd-jdbc](https://github.com/schauder/talk-ddd-jdbc)
