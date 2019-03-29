@@ -25,6 +25,7 @@ links:
 * [YouTube: The New Kid on the Block: Spring Data JDBC](https://www.youtube.com/watch?v=AnIouYdwxo0)
 * [Part 1: Spring Data JDBC - Getting started introduction](https://spring.io/blog/2018/09/17/introducing-spring-data-jdbc)
 * [Part 2: Spring Data JDBC - References and Aggregates](https://spring.io/blog/2018/09/24/spring-data-jdbc-references-and-aggregates)
+* [Publishing Events from Aggregate Roots](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#core.domain-events)
 * [Domain-Driven Design and Spring](http://static.olivergierke.de/lectures/ddd-and-spring/)
 * [YouTube: Spring Data JDBC - One to One & One to Many Relationships](https://www.youtube.com/watch?v=ccxBXDAPdmo)
 
