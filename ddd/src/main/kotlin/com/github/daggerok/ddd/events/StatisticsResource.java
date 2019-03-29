@@ -46,7 +46,6 @@ public class StatisticsResource {
     String name = newCustomer.getName();
     statistics.putIfAbsent(name, new AtomicLong(0));
     AtomicLong counter = statistics.get(name);
-    counter.incrementAndGet();
-    statistics.put(name, counter);
+    statistics.put(name, counter.incrementAndGet());
   }
 }
