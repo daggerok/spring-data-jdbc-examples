@@ -1,4 +1,4 @@
-# Spring Data JDBC
+# Spring Data JDBC [![Build Status](https://travis-ci.org/daggerok/spring-data-jdbc-examples.svg?branch=master)](https://travis-ci.org/daggerok/spring-data-jdbc-examples)
 Fast and efficient spring-data
 
 ## see simple and ddd submodules!
