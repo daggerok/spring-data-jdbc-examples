@@ -1,0 +1,24 @@
+GET http://127.0.0.1:8001/
+Content-Type: application/json
+Accept: application/json
+
+###
+GET http://127.0.0.1:8001/find-all
+Content-Type: application/json
+Accept: application/json
+
+###
+POST http://127.0.0.1:8001/
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "test 2"
+}
+
+###
+GET http://127.0.0.1:8001/find-all
+Content-Type: application/json
+Accept: application/json
+
+###

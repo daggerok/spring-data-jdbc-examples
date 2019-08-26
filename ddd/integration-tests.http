@@ -1,0 +1,32 @@
+POST http://127.0.0.1:8002/
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "test"
+}
+
+###
+POST http://127.0.0.1:8002/
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "test"
+}
+
+###
+POST http://127.0.0.1:8002/
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "test 2"
+}
+
+###
+GET http://127.0.0.1:8002/statistics
+Content-Type: application/json
+Accept: application/json
+
+###
