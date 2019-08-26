@@ -1,10 +1,8 @@
 package com.github.daggerok.h2
 
-import org.h2.server.TcpServer
 import org.h2.tools.Server
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
-import org.springframework.context.ConfigurableApplicationContext
 import java.sql.DriverManager
 import java.util.concurrent.TimeUnit
 

@@ -20,6 +20,18 @@ open [H2 web UI](http://127.0.0.1:8080/h2-console/)
 
 -->
 
+## increment project version
+
+```bash
+./mvnw -DgenerateBackupPoms=false build-helper:parse-version versions:set -DnewVersion=\${parsedVersion.majorVersion}.\${parsedVersion.minorVersion}.\${parsedVersion.nextIncrementalVersion}-SNAPSHOT
+```
+
+## check versions update
+
+```bash
+./mvnw versions:display-property-updates
+```
+
 links:
 
 * [YouTube: The New Kid on the Block: Spring Data JDBC](https://www.youtube.com/watch?v=AnIouYdwxo0)
