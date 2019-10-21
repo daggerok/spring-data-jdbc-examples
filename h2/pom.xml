@@ -6,7 +6,7 @@
   <parent>
     <groupId>com.github.daggerok</groupId>
     <artifactId>spring-data-jdbc-examples</artifactId>
-    <version>0.0.5-SNAPSHOT</version>
+    <version>0.0.6-SNAPSHOT</version>
   </parent>
 
   <description>H2 database based on Spring Boot</description>
@@ -25,5 +25,14 @@
       <!--<scope>runtime</scope>-->
     </dependency>
   </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
 
 </project>

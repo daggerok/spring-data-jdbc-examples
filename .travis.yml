@@ -2,35 +2,41 @@ notifications:
   email: false
 git:
   quiet: true
-  depth: 1
+  depth: false
 language: java
 jdk: openjdk8
-python: 3
+python: 3.7
+matrix:
+  include:
+  - python: 3.7
+services: docker
 addons:
   apt:
     update: true
     packages:
-    - sudo
-    - lsof
-    - wget
-    - bash
-    - curl
-    - jq
-    - python3-dev
-    - python3-pip
-    - python3-six
     - python3-setuptools
+    - python3-pip
 install: true
 before_install:
 - export PATH=$HOME/.local/bin:$PATH
-- pip3 install --user $(whoami) --upgrade pip >/dev/null # pip3 -> pip
-- pip install --user $(whoami) --upgrade httpie >/dev/null 2>&1
+- pip -V
+- pip3 install --user --upgrade pip >/dev/null # pip3 -> pip
+- pip install --user --upgrade httpie >/dev/null
 - http --version --debug
-#
-- source <(curl -s https://raw.githubusercontent.com/daggerok/bash-functions/master/main.bash)
-- stop_any 80 8001 8002 8080 5432
+- pip -V
+- |
+  if [ ! -f ${HOME}/.local/daggerok/bash-functions/master/main.bash ] ; then
+    mkdir -p ${HOME}/.local/daggerok/bash-functions/master ;
+    curl -s https://raw.githubusercontent.com/daggerok/bash-functions/master/main.bash > ${HOME}/.local/daggerok/bash-functions/master/main.bash ;
+  fi
+  source ${HOME}/.local/daggerok/bash-functions/master/main.bash ;
+- stop_any 80 5432 8080
 jobs:
   include:
+  - stage: test
+    jdk: openjdk11
+    name: spring-boot-2-2
+    script: cd $TRAVIS_BUILD_DIR && ./mvnw -f spring-boot-2-2/
   - stage: test
     jdk: openjdk8
     name: mvn test
@@ -95,6 +101,7 @@ jobs:
     script: cd $TRAVIS_BUILD_DIR && ./mvnw versions:display-property-updates
 cache:
   directories:
+  - ~/.local/daggerok
   - ~/.docker
   - ~/.m2
   packages: true

@@ -3,38 +3,88 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-  <parent>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.1.7.RELEASE</version>
-    <relativePath/> <!-- lookup parent from repository -->
-  </parent>
-
   <modelVersion>4.0.0</modelVersion>
   <description>Spring Data JDBC projects</description>
   <groupId>com.github.daggerok</groupId>
   <artifactId>spring-data-jdbc-examples</artifactId>
-  <version>0.0.5-SNAPSHOT</version>
+  <version>0.0.6-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <modules>
     <module>h2</module>
     <module>simple</module>
     <module>ddd</module>
+    <module>spring-boot-2-2</module>
   </modules>
+
+  <developers>
+    <developer>
+      <name>Maksim Kostromin</name>
+      <email>daggerok@gmail.com</email>
+      <organization>Sets of open source Maksim Kostromin aka daggerok projects</organization>
+      <organizationUrl>https://github.com/daggerok/</organizationUrl>
+    </developer>
+  </developers>
+
+  <licenses>
+    <license>
+      <name>MIT License</name>
+      <url>https://github.com/daggerok/spring-data-jdbc-examples/blob/master/LICENSE</url>
+    </license>
+  </licenses>
+
+  <organization>
+    <name>Maksim Kostromin aka daggerok open source projects sets</name>
+    <url>https://github.com/daggerok/</url>
+  </organization>
+
+  <scm>
+    <developerConnection>scm:git:git@github.com:daggerok/spring-data-jdbc-examples.git</developerConnection>
+    <connection>scm:git:https://github.com/daggerok/spring-data-jdbc-examples.git</connection>
+    <url>https://github.com/daggerok/spring-data-jdbc-examples</url>
+    <tag>HEAD</tag>
+  </scm>
 
   <properties>
     <java.version>1.8</java.version>
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
 
+    <encoding>UTF-8</encoding>
+    <project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
+
     <junit.version>4.12</junit.version>
     <kotlin.version>1.3.50</kotlin.version>
-    <junit-jupiter.version>5.5.1</junit-jupiter.version>
+    <junit-jupiter.version>5.5.2</junit-jupiter.version>
+    <spring-boot.version>2.1.9.RELEASE</spring-boot.version>
+    <spring-boot-2.2.x.version>2.2.0.RELEASE</spring-boot-2.2.x.version>
 
+    <docker-maven-plugin.version>0.31.0</docker-maven-plugin.version>
+    <versions-maven-plugin.version>2.7</versions-maven-plugin.version>
     <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
     <maven-surefire-plugin.version>3.0.0-M3</maven-surefire-plugin.version>
   </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>${spring-boot.version}</version>
+        <scope>import</scope>
+        <type>pom</type>
+      </dependency>
+
+      <dependency>
+        <groupId>org.junit</groupId>
+        <artifactId>junit-bom</artifactId>
+        <version>${junit-jupiter.version}</version>
+        <scope>import</scope>
+        <type>pom</type>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
   <dependencies>
     <dependency>
@@ -84,16 +134,9 @@
 
     <plugins>
       <plugin>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-maven-plugin</artifactId>
-        <configuration>
-          <executable>true</executable>
-        </configuration>
-      </plugin>
-
-      <plugin>
         <groupId>org.jetbrains.kotlin</groupId>
         <artifactId>kotlin-maven-plugin</artifactId>
+        <version>${kotlin.version}</version>
         <configuration>
           <jvmTarget>${java.version}</jvmTarget>
           <args>
@@ -175,6 +218,63 @@
         <version>${maven-surefire-plugin.version}</version>
       </plugin>
     </plugins>
+
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-maven-plugin</artifactId>
+          <version>${spring-boot.version}</version>
+          <configuration>
+            <executable>true</executable>
+          </configuration>
+          <executions>
+            <execution>
+              <goals><goal>repackage</goal></goals>
+              <id>repackage</id>
+            </execution>
+            <execution>
+              <goals><goal>build-info</goal></goals>
+              <id>build-info</id>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
+    </pluginManagement>
   </build>
+
+  <profiles>
+    <profile>
+      <id>updates</id>
+      <build>
+        <!-- ./mvnw versions:display-property-updates -P update -->
+        <defaultGoal>versions:display-property-updates</defaultGoal>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>versions-maven-plugin</artifactId>
+            <version>${versions-maven-plugin.version}</version>
+            <configuration>
+              <!--
+                Preferences | Build, Execution, Deployment | Build Tools | Maven | Runner | VM Options:
+                -Dmaven.multiModuleProjectDirectory=$M2_HOME
+              -->
+              <rulesUri>file:///${maven.multiModuleProjectDirectory}/.mvn/versions-maven-plugin-rules.xml</rulesUri>
+            </configuration>
+            <executions>
+              <execution>
+                <phase>initialize</phase>
+                <goals>
+                  <goal>display-dependency-updates</goal>
+                  <goal>display-property-updates</goal>
+                  <goal>display-plugin-updates</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 
 </project>
