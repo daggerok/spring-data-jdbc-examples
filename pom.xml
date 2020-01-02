@@ -15,6 +15,7 @@
     <module>simple</module>
     <module>ddd</module>
     <module>spring-boot-2-2</module>
+    <module>many-to-many</module>
   </modules>
 
   <developers>
