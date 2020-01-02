@@ -1,0 +1,44 @@
+POST http://127.0.0.1:8080/authors
+Accept: application/json
+Content-Type: application/json
+
+{
+  "id": "00000000-0000-0000-0000-000000000003",
+  "name": "Maksimko",
+  "email": "daggerok@gmail.com"
+}
+
+###
+POST http://127.0.0.1:8080/authors
+Accept: application/json
+Content-Type: application/json
+
+{
+  "id": "00000000-0000-0000-0000-000000000004",
+  "name": "Passwordinko",
+  "email": "daggerok@gmail.com"
+}
+
+###
+GET http://127.0.0.1:8080/authors
+Accept: application/json
+
+###
+POST http://127.0.0.1:8080/messages
+Accept: application/json
+Content-Type: application/json
+
+{
+  "id": "00000000-0000-0000-0000-000000000002",
+  "body": "hny!",
+  "authors": [
+    { "author": "00000000-0000-0000-0000-000000000003" },
+    { "author": "00000000-0000-0000-0000-000000000004" }
+  ]
+}
+
+###
+GET http://127.0.0.1:8080/messages
+Accept: application/json
+
+###

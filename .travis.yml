@@ -6,9 +6,8 @@ git:
 language: java
 jdk: openjdk8
 python: 3.7
-matrix:
-  include:
-  - python: 3.7
+os: linux
+arch: amd64
 services: docker
 addons:
   apt:
@@ -19,11 +18,8 @@ addons:
 install: true
 before_install:
 - export PATH=$HOME/.local/bin:$PATH
-- pip -V
-- pip3 install --user --upgrade pip >/dev/null # pip3 -> pip
-- pip install --user --upgrade httpie >/dev/null
-- http --version --debug
-- pip -V
+- pip3 install --user --upgrade pip
+- pip install --user --upgrade httpie
 - |
   if [ ! -f ${HOME}/.local/daggerok/bash-functions/master/main.bash ] ; then
     mkdir -p ${HOME}/.local/daggerok/bash-functions/master ;
@@ -33,6 +29,27 @@ before_install:
 - stop_any 80 5432 8080
 jobs:
   include:
+  - stage: test
+    jdk: openjdk11
+    name: many-to-many
+    before_script:
+      - cd $TRAVIS_BUILD_DIR/many-to-many && ./mvnw
+      - java -jar $TRAVIS_BUILD_DIR/many-to-many/target/*.jar &
+      - wait_for 8080
+    script:
+      - http :8080/authors id=00000000-0000-0000-0000-000000000003
+                           name=Maksimko email=daggerok@gmail.com
+      - http :8080/authors id=00000000-0000-0000-0000-000000000004
+                           name="Maksim Ko" email=daggerok@gmail.com
+      - http :8080/authors
+      - http :8080/messages id=00000000-0000-0000-0000-000000000002
+                            body=hny
+                            authors:='[
+                              {"author":"00000000-0000-0000-0000-000000000003"},
+                              {"author":"00000000-0000-0000-0000-000000000004"}
+                            ]'
+      - http :8080/messages
+    after_script: http post :8080/actuator/shutdown
   - stage: test
     jdk: openjdk11
     name: spring-boot-2-2

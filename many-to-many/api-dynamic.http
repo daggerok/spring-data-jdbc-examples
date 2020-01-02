@@ -1,0 +1,73 @@
+POST http://127.0.0.1:8080/authors
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "Maksimko",
+  "email": "daggerok@gmail.com"
+}
+
+> {%
+    client.test("Create 1st author and parse response json, obtain and store id for later use", function() {
+        // https://www.jetbrains.com/help/idea/http-response-handling-examples.html#script-var-example
+        // client.global.set("id", response.body.json.id);
+        // client.global.set("author_1_id", response.body.id);
+        client.global.set("author_1_id", response.body["id"]);
+    });
+%}
+
+###
+POST http://127.0.0.1:8080/authors
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "Passwordinko",
+  "email": "daggerok@gmail.com"
+}
+
+> {%
+    client.test("Create 2nd author and parse response json, obtain and store id for later use", function() {
+        // https://www.jetbrains.com/help/idea/http-response-handling-examples.html#script-var-example
+        // client.global.set("id", response.body.json.id);
+        // client.global.set("author_1_id", response.body.id);
+        client.global.set("author_2_id", response.body.id);
+    });
+%}
+
+###
+GET http://127.0.0.1:8080/authors/{{author_1_id}}
+Accept: application/json
+
+###
+GET http://127.0.0.1:8080/authors/{{author_2_id}}
+Accept: application/json
+
+###
+GET http://127.0.0.1:8080/authors
+Accept: application/json
+
+###
+POST http://127.0.0.1:8080/messages
+Accept: application/json
+Content-Type: application/json
+
+{
+  "body": "yo-ho-ho!",
+  "authors": [
+    { "author": "{{author_1_id}}" },
+    { "author": "{{author_2_id}}" }
+  ]
+}
+
+> {%
+    client.test("Create 1st author and parse response json, obtain and store id for later use", function() {
+        client.global.set("author_1_id", response.body["id"]);
+    });
+%}
+
+###
+GET http://127.0.0.1:8080/messages
+Accept: application/json
+
+###
