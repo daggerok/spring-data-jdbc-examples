@@ -7,6 +7,7 @@
  
 ## resources
 
+* [Spring Data JDBC object creation](https://docs.spring.io/spring-data/jdbc/docs/current/reference/html/#mapping.object-creation)
 * [YouTube: Spring Data JDBC - Many to Many Relationships](https://www.youtube.com/watch?v=5rqlqon8xko)
 * [Lombok value objects breaking changes fixes](https://stackoverflow.com/questions/48330613/objectmapper-cant-deserialize-without-default-constructor-after-upgrade-to-spri)
 <!--
