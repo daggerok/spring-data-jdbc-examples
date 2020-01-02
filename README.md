@@ -36,6 +36,7 @@ open [H2 web UI](http://127.0.0.1:8080/h2-console/)
 
 links:
 
+* [Spring Data JDBC object creation](https://docs.spring.io/spring-data/jdbc/docs/current/reference/html/#mapping.object-creation)
 * [GitHub: schauder/talk-ddd-jdbc (DDD JDBC talk repo)](https://github.com/schauder/talk-ddd-jdbc/blob/master/src/main/java/de/schauderhaft/ddd/jdbc/LegoModel.java)
 * [YouTube: Domain-Driven Design with Relational Databases Using Spring Data JDBC (DDD JDBC talk)](https://www.youtube.com/watch?v=GOSW911Ox6s)
 * [YouTube: The New Kid on the Block: Spring Data JDBC](https://www.youtube.com/watch?v=AnIouYdwxo0)
