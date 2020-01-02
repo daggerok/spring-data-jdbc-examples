@@ -1,4 +1,4 @@
-# Spring Data JDBC Many-To-Many relationship
+# Spring Data JDBC Many-To-Many relationship [![Build Status](https://travis-ci.org/daggerok/spring-data-jdbc-examples.svg?branch=master)](https://travis-ci.org/daggerok/spring-data-jdbc-examples)
 
 * See [Travis CI](../travis.yml) to get info how to test.
 * Please make a note of using Lombok and check [lombok.config](lombok.config) file.
