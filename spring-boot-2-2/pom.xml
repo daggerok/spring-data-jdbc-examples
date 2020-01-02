@@ -69,9 +69,10 @@
                                     <POSTGRES_PASSWORD>postgres</POSTGRES_PASSWORD>
                                 </env>
                                 <healthCheck>
-                                    <startPeriod>3s</startPeriod>
-                                    <timeout>1s</timeout>
                                     <retries>33</retries>
+                                    <timeout>2s</timeout>
+                                    <interval>2s</interval>
+                                    <startPeriod>2s</startPeriod>
                                     <cmd>pg_isready -h 127.0.0.1 -p 5432 -d $$POSTGRES_DB -U $$POSTGRES_USER</cmd>
                                 </healthCheck>
                             </build>

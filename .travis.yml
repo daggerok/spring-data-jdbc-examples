@@ -53,7 +53,9 @@ jobs:
   - stage: test
     jdk: openjdk11
     name: spring-boot-2-2
+    before_script: cd $TRAVIS_BUILD_DIR && ./mvnw -f spring-boot-2-2/ docker:build docker:start
     script: cd $TRAVIS_BUILD_DIR && ./mvnw -f spring-boot-2-2/
+    after_script: cd $TRAVIS_BUILD_DIR && ./mvnw -f spring-boot-2-2/ docker:stop docker:remove
   - stage: test
     jdk: openjdk8
     name: mvn test

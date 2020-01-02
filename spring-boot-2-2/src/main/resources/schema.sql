@@ -14,7 +14,7 @@ CREATE TABLE aggregate (
 DROP TABLE IF EXISTS speaker;
 CREATE TABLE speaker (
     id UUID PRIMARY KEY,
-    name VARCHAR NOT NULL,
+    name VARCHAR NOT NULL
 );
 ---
 DROP TABLE IF EXISTS session;
