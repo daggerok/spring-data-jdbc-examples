@@ -3,6 +3,8 @@ Fast and efficient spring-data
 
 ## see simple and ddd submodules!
 
+- [YouTube: Spring Data JDBC - Many to Many Relationships](https://www.youtube.com/watch?v=5rqlqon8xko)
+- [Lombok value objects breaking changes fixes](https://stackoverflow.com/questions/48330613/objectmapper-cant-deserialize-without-default-constructor-after-upgrade-to-spri)
 - [Spring Data JDBC Getting started](./simple/)
 - [DDD app based on Spring Data JDBC](./ddd/)
 

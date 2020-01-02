@@ -7,7 +7,7 @@
   <description>Spring Data JDBC projects</description>
   <groupId>com.github.daggerok</groupId>
   <artifactId>spring-data-jdbc-examples</artifactId>
-  <version>0.0.6-SNAPSHOT</version>
+  <version>0.0.7-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <modules>
