@@ -5,6 +5,7 @@ import lombok.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.domain.AbstractAggregateRoot;
 import org.springframework.data.domain.Persistable;
@@ -22,7 +23,6 @@ import java.util.stream.Collectors;
 @With
 @Value
 @Table("message_author")
-@RequiredArgsConstructor
 class AuthorRef {
     // id of author that the message is referencing on...
     // should be same as in SQL message_author definition...
@@ -93,20 +93,27 @@ class AuthorResource {
 
 /********/
 
-@Data
 @With
-@AllArgsConstructor
+@Value
 @EqualsAndHashCode(callSuper = false)
 class Message extends AbstractAggregateRoot<Message> implements Persistable<UUID> {
 
-    @Id UUID id;
-    UUID aggregateId;
-    String body;
-    LocalDateTime lastModifiedDateTime;
-    Set<AuthorRef> authors/* = new HashSet<>()*/;
+    final @Id @Getter UUID id;
+    final UUID aggregateId;
+    final String body;
+    final LocalDateTime lastModifiedDateTime;
+    final Set<AuthorRef> authors;
 
-    public Message add(Author... authors) {
-        if (Objects.isNull(this.authors)) this.authors = new HashSet<>();
+    @PersistenceConstructor
+    Message(UUID id, UUID aggregateId, String body, LocalDateTime lastModifiedDateTime, Set<AuthorRef> authors) {
+        this.id = id;
+        this.aggregateId = aggregateId;
+        this.body = body;
+        this.lastModifiedDateTime = lastModifiedDateTime;
+        this.authors = Optional.ofNullable(authors).orElse(new HashSet<>());
+    }
+
+    public Message withAuthor(Author... authors) {
         this.authors.addAll(Arrays.stream(authors)
                                   .map(Author::getId)
                                   .map(AuthorRef::new).collect(Collectors.toList()));

@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.jdbc.DataJdbcTest;
 
-import java.util.HashSet;
 import java.util.Optional;
 import java.util.stream.Stream;
 
@@ -29,8 +28,8 @@ class SpringDataJdbcManyToManyApplicationTests {
                                  .map(authorRepository::save)
                                  // .collect(Collectors.toList())
                                  .toArray(Author[]::new);
-        Message message = messagesRepository.save(new Message(null, null, "hello!", null /*LocalDateTime.now()*/, new HashSet<>())
-                                                          .add(authors));
+        Message message = messagesRepository.save(new Message(null, null, "hello!", null /*LocalDateTime.now()*/, null)
+                                                          .withAuthor(authors));
         assertThat(message.getId()).isNotNull();
 
         Optional<Message> maybeMessage = messagesRepository.findById(message.getId());
