@@ -16,6 +16,7 @@
     <module>ddd</module>
     <module>spring-boot-2-2</module>
     <module>many-to-many</module>
+    <module>refs</module>
   </modules>
 
   <developers>

@@ -30,10 +30,13 @@ before_install:
 jobs:
   include:
   - stage: test
+    name: rafs
+    script: cd $TRAVIS_BUILD_DIR/many-to-many && ./mvnw
+  - stage: test
     jdk: openjdk11
     name: many-to-many
     before_script:
-      - cd $TRAVIS_BUILD_DIR/many-to-many && ./mvnw
+      - cd $TRAVIS_BUILD_DIR && ./mvnw -f refs
       - java -jar $TRAVIS_BUILD_DIR/many-to-many/target/*.jar &
       - wait_for 8080
     script:
