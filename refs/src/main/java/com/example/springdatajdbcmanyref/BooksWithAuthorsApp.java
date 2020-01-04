@@ -45,8 +45,7 @@ class BookWithAuthors {
     }
 }
 
-interface BookWithAuthorRepository extends CrudRepository<BookWithAuthors, Long> {
-}
+interface BookWithAuthorRepository extends CrudRepository<BookWithAuthors, Long> { }
 
 @With
 @Value
@@ -58,8 +57,7 @@ class AuthorOfBook {
     private final String name;
 }
 
-interface AuthorOfBookRepository extends CrudRepository<AuthorOfBook, Long> {
-}
+interface AuthorOfBookRepository extends CrudRepository<AuthorOfBook, Long> { }
 
 @Value(staticConstructor = "of")
 @Table("author_of_book_ref")
@@ -68,5 +66,4 @@ class AuthorOfBookRef {
 }
 
 @Configuration
-public class BooksWithAuthorsApp { /* stub */
-}
+public class BooksWithAuthorsApp { /* stub */ }

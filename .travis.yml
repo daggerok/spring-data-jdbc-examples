@@ -30,8 +30,8 @@ before_install:
 jobs:
   include:
   - stage: test
-    name: rafs
-    script: cd $TRAVIS_BUILD_DIR/many-to-many && ./mvnw
+    name: refs
+    script: cd $TRAVIS_BUILD_DIR && ./mvnw -f refs
   - stage: test
     jdk: openjdk11
     name: many-to-many

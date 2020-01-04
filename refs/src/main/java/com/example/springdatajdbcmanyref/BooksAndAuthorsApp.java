@@ -18,8 +18,7 @@ class Book {
     private final String title;
 }
 
-interface BookRepository extends CrudRepository<Book, Long> {
-}
+interface BookRepository extends CrudRepository<Book, Long> { }
 
 @With
 @Value
@@ -31,9 +30,7 @@ class Author {
     private final String name;
 }
 
-interface AuthorRepository extends CrudRepository<Author, Long> {
-}
+interface AuthorRepository extends CrudRepository<Author, Long> { }
 
 @Configuration
-public class BooksAndAuthorsApp { /* stub */
-}
+public class BooksAndAuthorsApp { /* stub */ }
