@@ -36,7 +36,7 @@ jobs:
     jdk: openjdk11
     name: many-to-many
     before_script:
-      - cd $TRAVIS_BUILD_DIR && ./mvnw -f refs
+      - cd $TRAVIS_BUILD_DIR/many-to-many && ./mvnw
       - java -jar $TRAVIS_BUILD_DIR/many-to-many/target/*.jar &
       - wait_for 8080
     script:
