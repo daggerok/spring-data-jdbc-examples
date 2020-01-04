@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments/dry.html :: head">
+  <!-- This whole head tag with title will be replaced
+       by head fragment from fragments/dry.html file! -->
+  <title>Ignore...</title>
+</head>
+<body>
+<header th:include="fragments/dry.html :: navbar" th:remove="tag">
+  <!-- This whole div tag will be replaced by
+       navbar fragment from fragments/dry.html file! -->
+</header>
+
+<main class="container">
+  <p>Hey!</p>
+</main>
+
+<div th:include="fragments/dry :: scripts" th:remove="tag">
+  <!-- This whole script tag will be replaced by
+       mainJs fragment from fragments/dry.html file! -->
+</div>
+</body>
+</html>

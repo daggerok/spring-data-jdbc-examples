@@ -1,3 +1,13 @@
+### IntelliJ IDEA ###
+.idea
+!.idea/
+.idea/*
+.idea/runConfigurations/
+*.iws
+*.iml
+*.ipr
+
+*.log*
 .gradle/
 target/
 build/
@@ -12,12 +22,6 @@ out/
 .settings
 .springBeans
 .sts4-cache
-
-### IntelliJ IDEA ###
-.idea/
-*.iws
-*.iml
-*.ipr
 
 ### NetBeans ###
 /nbproject/private/

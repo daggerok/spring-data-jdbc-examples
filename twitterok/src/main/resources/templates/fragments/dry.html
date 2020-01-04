@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" th:href="@{/app/favicon.ico}" href="app/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" th:href="@{/webjars/roboto-fontface/0.10.0/css/roboto/roboto-fontface.css}"
+        href="webjars/roboto-fontface/0.10.0/css/roboto/roboto-fontface.css">
+  <link rel="stylesheet" th:href="@{/webjars/material-design-icons/3.0.1/material-icons.css}"
+        href="webjars/material-design-icons/3.0.1/material-icons.css">
+  <link rel="stylesheet" th:href="@{/app/main.css}" href="app/main.css">
+  <title>TwitterOK</title>
+</head>
+<body>
+<div th:fragment="navbar">
+<header class="header">
+  <a class="brand" href="#">TwitterOK</a>
+  <nav class="menu">
+    <ul>
+      <li><a class="pull-right" href="/">home</a></li>
+    </ul>
+  </nav>
+</header>
+</div>
+<div th:fragment="scripts"><script th:src="@{/app/main.js}" src="app/main.js"></script></div>
+</body>
+</html>

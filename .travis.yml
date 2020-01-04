@@ -31,6 +31,17 @@ jobs:
   include:
   - stage: test
     name: refs
+    before_script:
+      - cd $TRAVIS_BUILD_DIR && ./mvnw -f twitterok
+      - java -jar $TRAVIS_BUILD_DIR/twitterok/target/*-SNAPSHOT.jar &
+      - wait_for 8080
+    script:
+      - http :8080
+      - http :8080/404
+      - http :8080/error
+    after_script: http post :8080/actuator/shutdown
+  - stage: test
+    name: refs
     script: cd $TRAVIS_BUILD_DIR && ./mvnw -f refs
   - stage: test
     jdk: openjdk11

@@ -1,0 +1,34 @@
+html,
+body {
+    font-family: Roboto, sans-serif;
+    font-size: 1.1em;
+}
+ul, li {
+    list-style: none;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    display: block;
+    width: 100%;
+    padding: 1em;
+    background: lightblue;
+}
+.header .brand {
+    position: absolute;
+    right: 1em;
+    text-decoration: none;
+    color: whitesmoke;
+    background: #56abff;
+    border-radius: 10% 50%;
+    padding: 1em;
+    margin: 0.5em;
+    cursor: crosshair;
+}
+
+.container {
+    padding: 1em;
+}
