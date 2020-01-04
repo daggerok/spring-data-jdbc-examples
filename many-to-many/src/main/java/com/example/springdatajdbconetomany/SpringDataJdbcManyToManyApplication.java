@@ -1,4 +1,4 @@
-package com.example.springdatajdbcmanytomany;
+package com.example.springdatajdbconetomany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;

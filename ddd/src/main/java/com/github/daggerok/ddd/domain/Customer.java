@@ -2,14 +2,15 @@ package com.github.daggerok.ddd.domain;
 
 import com.github.daggerok.ddd.events.CustomerCreatedEvent;
 import lombok.Value;
+import lombok.With;
 import lombok.experimental.Wither;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.domain.AbstractAggregateRoot;
 
 import java.time.LocalDate;
 
+@With
 @Value
-@Wither
 public class Customer extends AbstractAggregateRoot<Customer> {
 
   @Id

@@ -28,7 +28,7 @@
     <modelVersion>4.0.0</modelVersion>
     <name>${project.artifactId}</name>
     <description>Simple Spring Data JDBC example</description>
-    <artifactId>spring-data-jdbc-many-to-many</artifactId>
+    <artifactId>many-to-many</artifactId>
 
     <properties>
         <java.version>1.8</java.version>

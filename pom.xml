@@ -12,10 +12,11 @@
 
   <modules>
     <module>h2</module>
-    <module>simple</module>
     <module>ddd</module>
+    <module>simple</module>
     <module>spring-boot-2-2</module>
     <module>many-to-many</module>
+    <module>one-to-many</module>
     <module>refs</module>
   </modules>
 
@@ -100,6 +101,10 @@
     <dependency>
       <groupId>org.jetbrains.kotlin</groupId>
       <artifactId>kotlin-stdlib-jdk8</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.module</groupId>
+      <artifactId>jackson-module-kotlin</artifactId>
     </dependency>
 
     <dependency>

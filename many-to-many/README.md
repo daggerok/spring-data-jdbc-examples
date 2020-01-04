@@ -4,7 +4,7 @@
 * Please make a note of using Lombok and check [lombok.config](lombok.config) file.
 * Check `db/migration/*.sql` files carefully, compare them with `Author`, `Message` and `AuthorRef` classes.
 * Check tests as well...
- 
+
 ## resources
 
 * [Spring Data JDBC object creation](https://docs.spring.io/spring-data/jdbc/docs/current/reference/html/#mapping.object-creation)

@@ -2,7 +2,7 @@ package com.github.daggerok.simple;
 
 import lombok.EqualsAndHashCode;
 import lombok.Value;
-import lombok.experimental.Wither;
+import lombok.With;
 import org.springframework.data.annotation.Id;
 
 import java.time.LocalDate;
@@ -14,8 +14,8 @@ import java.time.LocalDate;
 //@AllArgsConstructor
 //@EqualsAndHashCode(exclude = "id")
 
+@With
 @Value
-@Wither
 @EqualsAndHashCode(exclude = "id")
 class Customer {
 

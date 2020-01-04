@@ -1,4 +1,4 @@
-package com.example.springdatajdbcmanytomany;
+package com.example.springdatajdbconetomany;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
