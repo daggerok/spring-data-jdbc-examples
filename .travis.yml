@@ -45,10 +45,6 @@ jobs:
     script: cd $TRAVIS_BUILD_DIR && ./mvnw -f refs
   - stage: test
     jdk: openjdk11
-    name: one-to-many
-    script: cd $TRAVIS_BUILD_DIR/one-to-many && ./mvnw
-  - stage: test
-    jdk: openjdk11
     name: many-to-many
     before_script:
       - cd $TRAVIS_BUILD_DIR/many-to-many && ./mvnw
