@@ -1,0 +1,28 @@
+-- h2/pg
+CREATE SCHEMA IF NOT EXISTS public;
+
+DROP TABLE IF EXISTS author;
+
+CREATE TABLE IF NOT EXISTS author (
+    id UUID NOT NULL DEFAULT RANDOM_UUID(),
+    CONSTRAINT author_pk PRIMARY KEY (id),
+    name VARCHAR2(255) NOT NULL,
+    username VARCHAR2(255) NOT NULL,
+    email VARCHAR2(36) NOT NULL
+);
+
+DROP TABLE IF EXISTS tweet;
+
+CREATE TABLE IF NOT EXISTS tweet (
+    id UUID NOT NULL DEFAULT RANDOM_UUID(),
+    CONSTRAINT tweet_pk PRIMARY KEY (id),
+    body NVARCHAR2(4096) NOT NULL
+);
+
+DROP TABLE IF EXISTS author_ref;
+
+CREATE TABLE IF NOT EXISTS author_ref (
+    id UUID NOT NULL,
+    author UUID NOT NULL,
+    CONSTRAINT author_ref_pk PRIMARY KEY (id, author)
+);

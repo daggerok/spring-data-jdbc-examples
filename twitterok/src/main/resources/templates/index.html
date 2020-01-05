@@ -12,7 +12,31 @@
 </header>
 
 <main class="container">
-  <p>Hey!</p>
+  <div class="user-list-container">
+    <ul th:if="${users != null && users.size() > 0}">
+      <li th:each="u : ${users}">
+        <div>id: [[${u.id}]]</div>
+        <div>name: [[${u.name}]]</div>
+        <div>username: [[${u.username}]]</div>
+        <div>email: [[${u.email}]]</div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="create-user-container">
+    <h4>Create new user</h4>
+    <!--/*@thymesVar id="errors" type="com.github.daggerok.twitterok.web.IndexAdvice"*/-->
+    <ul th:if="${errors != null && errors.size() > 0}">
+      <li th:each="err : ${errors}" th:text="${err.field + ' ' + err.defaultMessage}" />
+    </ul>
+    <!--/*@thymesVar id="user" type="com.github.daggerok.twitterok.web.user.UserModel"*/-->
+    <form action="#/user/create/" th:action="@{/user/create/}" th:object="${user}" method="post">
+      <div><input placeholder="name" type="text" th:field="*{name}" autofocus /></div>
+      <div><input placeholder="username" type="text" th:field="*{username}" /></div>
+      <div><input placeholder="email" type="email" th:field="*{email}" /></div>
+      <div><input style="display: none;" type="submit" value="Create User" /></div>
+    </form>
+  </div>
 </main>
 
 <div th:include="fragments/dry :: scripts" th:remove="tag">
