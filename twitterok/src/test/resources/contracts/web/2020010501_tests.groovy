@@ -39,7 +39,7 @@ import org.springframework.cloud.contract.spec.Contract
                 method(GET())
             }
             response {
-                status(OK())
+                status(MOVED_TEMPORARILY())
             }
         },
 ]
