@@ -30,7 +30,7 @@ before_install:
 jobs:
   include:
   - stage: test
-    name: refs
+    name: twitterok
     before_script:
       - cd $TRAVIS_BUILD_DIR && ./mvnw -f twitterok
       - java -jar $TRAVIS_BUILD_DIR/twitterok/target/*-SNAPSHOT.jar &
