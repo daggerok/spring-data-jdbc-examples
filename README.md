@@ -51,5 +51,6 @@ links:
 
 other repositories to look:
 
+- [GitHub: daggerok/ddd-spring-hexagonal-architecture](https://github.com/daggerok/ddd-spring-hexagonal-architecture)
 - [GitHub: daggerok/spring-data-jdbc-example](https://github.com/daggerok/spring-data-jdbc-example)
 - [GitHub: daggerok/spring-data-examples](https://github.com/daggerok/spring-data-examples)
