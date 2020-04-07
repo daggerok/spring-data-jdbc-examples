@@ -134,5 +134,3 @@ cache:
   - ~/.local/daggerok
   - ~/.docker
   - ~/.m2
-  packages: true
-  pip: true
