@@ -18,119 +18,120 @@ addons:
     - httpie
 install: true
 before_install:
-  if [ ! -f ${HOME}/.local/daggerok/bash-functions/master/main.bash ] ; then
-    mkdir -p ${HOME}/.local/daggerok/bash-functions/master ;
-    curl -s https://raw.githubusercontent.com/daggerok/bash-functions/master/main.bash > ${HOME}/.local/daggerok/bash-functions/master/main.bash ;
-  fi
-  source ${HOME}/.local/daggerok/bash-functions/master/main.bash ;
-- stop_any 80 5432 8080
+  - |
+    if [ ! -f ${HOME}/.local/daggerok/bash-functions/master/main.bash ] ; then
+      mkdir -p ${HOME}/.local/daggerok/bash-functions/master ;
+      curl -s https://raw.githubusercontent.com/daggerok/bash-functions/master/main.bash > ${HOME}/.local/daggerok/bash-functions/master/main.bash ;
+    fi
+    source ${HOME}/.local/daggerok/bash-functions/master/main.bash ;
+  - stop_any 80 5432 8080
 jobs:
   include:
-  - stage: test
-    name: twitterok
-    before_script:
-      - cd $TRAVIS_BUILD_DIR && ./mvnw -f twitterok
-      - java -jar $TRAVIS_BUILD_DIR/twitterok/target/*-SNAPSHOT.jar &
-      - wait_for 8080
-    script:
-      - http :8080
-      - http :8080/404
-      - http :8080/error
-    after_script: http post :8080/actuator/shutdown
-  - stage: test
-    name: refs
-    script: cd $TRAVIS_BUILD_DIR && ./mvnw -f refs
-  - stage: test
-    jdk: openjdk11
-    name: many-to-many
-    before_script:
-      - cd $TRAVIS_BUILD_DIR/many-to-many && ./mvnw
-      - java -jar $TRAVIS_BUILD_DIR/many-to-many/target/*.jar &
-      - wait_for 8080
-    script:
-      - http :8080/authors id=00000000-0000-0000-0000-000000000003
-                           name=Maksimko email=daggerok@gmail.com
-      - http :8080/authors id=00000000-0000-0000-0000-000000000004
-                           name="Maksim Ko" email=daggerok@gmail.com
-      - http :8080/authors
-      - http :8080/messages id=00000000-0000-0000-0000-000000000002
-                            body=hny
-                            authors:='[
-                              {"author":"00000000-0000-0000-0000-000000000003"},
-                              {"author":"00000000-0000-0000-0000-000000000004"}
-                            ]'
-      - http :8080/messages
-    after_script: http post :8080/actuator/shutdown
-  - stage: test
-    jdk: openjdk11
-    name: spring-boot-2-2
-    before_script: cd $TRAVIS_BUILD_DIR && ./mvnw -f spring-boot-2-2/ docker:build docker:start
-    script: cd $TRAVIS_BUILD_DIR && ./mvnw -f spring-boot-2-2/
-    after_script: cd $TRAVIS_BUILD_DIR && ./mvnw -f spring-boot-2-2/ docker:stop docker:remove
-  - stage: test
-    jdk: openjdk8
-    name: mvn test
-    script: cd $TRAVIS_BUILD_DIR && ./mvnw
-  - stage: test
-    jdk: openjdk11
-    name: mvn test openjdk11
-    script: cd $TRAVIS_BUILD_DIR && ./mvnw
-  - stage: test
-    jdk: openjdk8
-    name: ddd integration tests
-    script:
-    - cd $TRAVIS_BUILD_DIR && ./mvnw -pl ddd
-    - java -jar $TRAVIS_BUILD_DIR/ddd/target/*.jar &
-    - wait_for 8002
-    - http :8002 name=test
-    - http :8002 name=test
-    - http :8002 name="test 2"
-    - http :8002/statistics
-    - stop_any 80 8002
-  - stage: test
-    jdk: openjdk11
-    name: ddd integration tests openjdk11
-    script:
-    - cd $TRAVIS_BUILD_DIR && ./mvnw -f $TRAVIS_BUILD_DIR/ddd/pom.xml
-    - java -jar $TRAVIS_BUILD_DIR/ddd/target/*.jar &
-    - wait_for 8002
-    - http :8002 name=test
-    - http :8002 name=test
-    - http :8002 name="test 2"
-    - http :8002/statistics
-    - stop_any 80 8002
-  - stage: test
-    jdk: openjdk8
-    name: simple integration tests
-    script:
-    - cd $TRAVIS_BUILD_DIR && ./mvnw -pl :simple
-    - java -jar $TRAVIS_BUILD_DIR/simple/target/*.jar &
-    - wait_for 8001
-    - http :8001
-    - http :8001 name=test
-    - http :8001/find-all
-    - stop_any 80 8001
-  - stage: test
-    jdk: openjdk11
-    name: simple integration tests openjdk11
-    script:
-    - cd $TRAVIS_BUILD_DIR && ./mvnw -f simple/pom.xml
-    - bash $TRAVIS_BUILD_DIR/simple/target/*.jar &
-    - wait_for 8001
-    - http :8001
-    - http :8001 name=test
-    - http :8001/find-all
-    - stop_any 80 8001
-  - stage: test
-    jdk: openjdk8
-    name: mvn versions:display-property-updates
-    script: cd $TRAVIS_BUILD_DIR && ./mvnw versions:display-property-updates
-  - stage: test
-    jdk: openjdk11
-    name: mvn versions:display-property-updates (openjdk11)
-    script: cd $TRAVIS_BUILD_DIR && ./mvnw versions:display-property-updates
+    - stage: test
+      name: twitterok
+      before_script:
+        - cd $TRAVIS_BUILD_DIR && ./mvnw -f twitterok
+        - java -jar $TRAVIS_BUILD_DIR/twitterok/target/*-SNAPSHOT.jar &
+        - wait_for 8080
+      script:
+        - http :8080
+        - http :8080/404
+        - http :8080/error
+      after_script: http post :8080/actuator/shutdown
+    - stage: test
+      name: refs
+      script: cd $TRAVIS_BUILD_DIR && ./mvnw -f refs
+    - stage: test
+      jdk: openjdk11
+      name: many-to-many
+      before_script:
+        - cd $TRAVIS_BUILD_DIR/many-to-many && ./mvnw
+        - java -jar $TRAVIS_BUILD_DIR/many-to-many/target/*.jar &
+        - wait_for 8080
+      script:
+        - http :8080/authors id=00000000-0000-0000-0000-000000000003
+                             name=Maksimko email=daggerok@gmail.com
+        - http :8080/authors id=00000000-0000-0000-0000-000000000004
+                             name="Maksim Ko" email=daggerok@gmail.com
+        - http :8080/authors
+        - http :8080/messages id=00000000-0000-0000-0000-000000000002
+                              body=hny
+                              authors:='[
+                                {"author":"00000000-0000-0000-0000-000000000003"},
+                                {"author":"00000000-0000-0000-0000-000000000004"}
+                              ]'
+        - http :8080/messages
+      after_script: http post :8080/actuator/shutdown
+    - stage: test
+      jdk: openjdk11
+      name: spring-boot-2-2
+      before_script: cd $TRAVIS_BUILD_DIR && ./mvnw -f spring-boot-2-2/ docker:build docker:start
+      script: cd $TRAVIS_BUILD_DIR && ./mvnw -f spring-boot-2-2/
+      after_script: cd $TRAVIS_BUILD_DIR && ./mvnw -f spring-boot-2-2/ docker:stop docker:remove
+    - stage: test
+      jdk: openjdk8
+      name: mvn test
+      script: cd $TRAVIS_BUILD_DIR && ./mvnw
+    - stage: test
+      jdk: openjdk11
+      name: mvn test openjdk11
+      script: cd $TRAVIS_BUILD_DIR && ./mvnw
+    - stage: test
+      jdk: openjdk8
+      name: ddd integration tests
+      script:
+      - cd $TRAVIS_BUILD_DIR && ./mvnw -pl ddd
+      - java -jar $TRAVIS_BUILD_DIR/ddd/target/*.jar &
+      - wait_for 8002
+      - http :8002 name=test
+      - http :8002 name=test
+      - http :8002 name="test 2"
+      - http :8002/statistics
+      - stop_any 80 8002
+    - stage: test
+      jdk: openjdk11
+      name: ddd integration tests openjdk11
+      script:
+      - cd $TRAVIS_BUILD_DIR && ./mvnw -f $TRAVIS_BUILD_DIR/ddd/pom.xml
+      - java -jar $TRAVIS_BUILD_DIR/ddd/target/*.jar &
+      - wait_for 8002
+      - http :8002 name=test
+      - http :8002 name=test
+      - http :8002 name="test 2"
+      - http :8002/statistics
+      - stop_any 80 8002
+    - stage: test
+      jdk: openjdk8
+      name: simple integration tests
+      script:
+      - cd $TRAVIS_BUILD_DIR && ./mvnw -pl :simple
+      - java -jar $TRAVIS_BUILD_DIR/simple/target/*.jar &
+      - wait_for 8001
+      - http :8001
+      - http :8001 name=test
+      - http :8001/find-all
+      - stop_any 80 8001
+    - stage: test
+      jdk: openjdk11
+      name: simple integration tests openjdk11
+      script:
+      - cd $TRAVIS_BUILD_DIR && ./mvnw -f simple/pom.xml
+      - bash $TRAVIS_BUILD_DIR/simple/target/*.jar &
+      - wait_for 8001
+      - http :8001
+      - http :8001 name=test
+      - http :8001/find-all
+      - stop_any 80 8001
+    - stage: test
+      jdk: openjdk8
+      name: mvn versions:display-property-updates
+      script: cd $TRAVIS_BUILD_DIR && ./mvnw versions:display-property-updates
+    - stage: test
+      jdk: openjdk11
+      name: mvn versions:display-property-updates (openjdk11)
+      script: cd $TRAVIS_BUILD_DIR && ./mvnw versions:display-property-updates
 cache:
   directories:
-  - ~/.local/daggerok
-  - ~/.docker
-  - ~/.m2
+    - ~/.local/daggerok
+    - ~/.docker
+    - ~/.m2
