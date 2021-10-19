@@ -2,6 +2,7 @@ package com.github.daggerok.twitterok.web.user;
 
 import com.github.daggerok.twitterok.data.Author;
 import com.github.daggerok.twitterok.data.AuthorRepository;
+import java.time.Instant;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
@@ -31,7 +32,8 @@ public class UserPage {
             return "index";
         }
         log.info("{}: {}", user, bindingResult);
-        Author author = new Author(null, user.getName(), user.getUsername(), user.getEmail());
+        Author author = new Author(null, user.getName(), user.getUsername(), user.getEmail(), Instant.now());
+        //Author author = new Author(null, user.getName(), user.getUsername(), user.getEmail());
         Author savedAuthor = repository.save(author);
         log.info("saved author: {}", savedAuthor);
         // return "forward:/";

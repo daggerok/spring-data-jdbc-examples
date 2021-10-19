@@ -12,17 +12,6 @@
 </header>
 
 <main class="container">
-  <div class="user-list-container">
-    <ul th:if="${users != null && users.size() > 0}">
-      <li th:each="u : ${users}">
-        <div>id: [[${u.id}]]</div>
-        <div>name: [[${u.name}]]</div>
-        <div>username: [[${u.username}]]</div>
-        <div>email: [[${u.email}]]</div>
-      </li>
-    </ul>
-  </div>
-
   <div class="create-user-container">
     <h4>Create new user</h4>
     <!--/*@thymesVar id="errors" type="com.github.daggerok.twitterok.web.IndexAdvice"*/-->
@@ -36,6 +25,17 @@
       <div><input placeholder="email" type="email" th:field="*{email}" /></div>
       <div><input style="display: none;" type="submit" value="Create User" /></div>
     </form>
+  </div>
+
+  <div class="user-list-container">
+    <ul th:if="${users != null && users.size() > 0}">
+      <li th:each="u : ${users}">
+        <div>id: [[${u.id}]]</div>
+        <div>name: [[${u.name}]]</div>
+        <div>username: [[${u.username}]]</div>
+        <div>email: [[${u.email}]]</div>
+      </li>
+    </ul>
   </div>
 </main>
 

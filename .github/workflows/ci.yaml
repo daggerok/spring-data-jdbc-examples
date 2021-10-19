@@ -1,0 +1,71 @@
+name: CI
+on:
+  workflow_dispatch:
+    inputs:
+      trigger:
+        description: Type m to triggre manual jobs
+        required: false
+        default: ''
+  pull_request:
+    branches: [ main, master ]
+  push:
+env:
+  JAVA_VERSION: 1.8
+jobs:
+  twitterok:
+    if: github.event.inputs.trigger == ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/cache@v2
+      id: ci
+      with:
+        path: |
+          ~/.npm
+          ~/.node
+          ~/.local
+          ~/.gradle
+          ~/.docker
+          ~/.m2/repository
+          !~/.m2/repository/com/gituhb/daggerok
+        key: ${{ runner.os }}-${{ hashFiles('**/pom.xml') }}
+    - uses: actions/setup-java@v1
+      with:
+        java-version: ${{ env.JAVA_VERSION }}
+    - run: sudo apt-get install -y httpie
+    - run: cd $GITHUB_WORKSPACE ; ./mvnw -f twitterok clean test
+    - run: cd $GITHUB_WORKSPACE ; ./mvnw -f twitterok spring-boot:start
+    - run: |
+        http --ignore-stdin get :8080/404
+        http --ignore-stdin get :8080/error
+        curl -sS 0:8080/user/create/ -d name=ololo -d username=trololo -d email=ololo.trololo@mail.com
+        http --ignore-stdin get :8080
+    - run: http --ignore-stdin post :8080/actuator/shutdown
+  dependency-updates:
+    if: contains(github.event.inputs.trigger, 'M')
+      || startsWith(github.event.inputs.trigger, 'm')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+    - run: |
+        echo "Trigger: ${{ github.event.inputs.trigger }}"
+    - uses: actions/checkout@v2
+    - uses: actions/cache@v2
+      id: ci
+      with:
+        path: |
+          ~/.npm
+          ~/.node
+          ~/.local
+          ~/.gradle
+          ~/.docker
+          ~/.m2/repository
+          !~/.m2/repository/com/gituhb/daggerok
+        key: ${{ runner.os }}-${{ hashFiles('**/pom.xml') }}
+    - uses: actions/setup-java@v1
+      with:
+        java-version: ${{ env.JAVA_VERSION }}
+    - run: cd $GITHUB_WORKSPACE ; ./mvnw versions:display-plugin-updates
+    - run: cd $GITHUB_WORKSPACE ; ./mvnw versions:display-property-updates
+    - run: cd $GITHUB_WORKSPACE ; ./mvnw versions:display-parent-updates

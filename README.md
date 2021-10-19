@@ -1,5 +1,9 @@
-# Spring Data JDBC [![Build Status](https://travis-ci.org/daggerok/spring-data-jdbc-examples.svg?branch=master)](https://travis-ci.org/daggerok/spring-data-jdbc-examples)
+# Spring Data JDBC [![CI](https://github.com/daggerok/spring-data-jdbc-examples/actions/workflows/ci.yaml/badge.svg)](https://github.com/daggerok/spring-data-jdbc-examples/actions/workflows/ci.yaml)
 Fast and efficient spring-data
+
+<!-- old Travis CI status:
+[![Build Status](https://travis-ci.org/daggerok/spring-data-jdbc-examples.svg?branch=master)](https://travis-ci.org/daggerok/spring-data-jdbc-examples)
+-->
 
 ## see simple and ddd submodules!
 

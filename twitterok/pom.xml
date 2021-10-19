@@ -129,6 +129,9 @@
                         <goals><goal>build-info</goal></goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <jmxPort>9001</jmxPort>
+                </configuration>
             </plugin>
         </plugins>
     </build>
